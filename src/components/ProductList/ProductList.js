@@ -1,26 +1,39 @@
 import styles from './ProductList.module.scss'
-import { useProductList } from './useProductList'
+import { Corn } from '../../images'
+import { useEffect } from 'react'
+import { useProductList } from '../useProductList'
 
-const ProductList = () => {
-  const { items, filter, status, updateFilter } = useProductList()
-
-  const handleFilterIsNewUpdate = () => updateFilter({ isNew: !filter.isNew })
+const ProductList = ({ filterlist, setFilterlist }) => {
+  const { items } = useProductList()
+  useEffect(() => {
+    setFilterlist(items)
+  }, [items])
 
   return (
-    <div className={styles.root}>
-      <div className={styles.filtersContainer}>
-        <div>Filters placeholder</div>
-        <div>
-          <label htmlFor="is_new">Is new</label>
-          <input id="is_new" type="checkbox" onChange={handleFilterIsNewUpdate} checked={filter.isNew} />
-        </div>
-      </div>
-      <div>Status: {status}</div>
+    <div className={styles.productList}>
       <div className={styles.itemsContainer}>
-        {items.map(item => (
+        {filterlist.map(item => (
           <div className={styles.productContainer} key={item.id}>
-            <span className={styles.productName}>{item.name}</span>
-            <span>{item.description}</span>
+            <img src={Corn} alt="" />
+            <div className={styles.productWrapper}>
+              <div className={styles.limitedBlock}>
+                {item.isLimited ? <span className={styles.limited}>Limited</span> : ''}
+                {item.isNew ? <span className={styles.new}>new</span> : ''}
+              </div>
+              <div className={styles.descriptionWrapper}>
+                <span className={styles.categoryName}>{item.categoryName}</span>
+                <span className={styles.productName}>{item.name}</span>
+                <span className={styles.description}>{item.description}</span>
+                <div className={styles.priceWrapper}>
+                  <span className={styles.price}>{item.price}$</span>
+                  {item.discount !== null ? (
+                    <span className={styles.discount}>Discount{item.discount} per bag</span>
+                  ) : (
+                    ''
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
         ))}
       </div>

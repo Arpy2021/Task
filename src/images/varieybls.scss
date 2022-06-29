@@ -1,0 +1,21 @@
+:root{
+  --firstWidth:1440px;
+}
+
+$firstWidth:var(--firstWidth);
+
+@media (max-width: 1500px){
+  :root {
+    --firstWidth: 1200px;
+  }
+}
+@media (max-width: 1200px){
+  :root {
+    --firstWidth: 1100px;
+  }
+}
+@media (max-width: 1140px){
+  :root {
+    --firstWidth: 1000px;
+  }
+}

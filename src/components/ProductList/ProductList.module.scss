@@ -1,30 +1,132 @@
-.root {
-  padding: 20px;
-  display: grid;
-  grid-gap: 16px;
-  grid-auto-columns: 1fr;
+@import "../../images/varieybls";
+
+.productList{
+  width: 100%;
+  .itemsContainer{
+    width: $firstWidth;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .productContainer{
+      width: calc(97% / 3);
+      height: 145px;
+      margin-top: 20px;
+      border-radius: 16px;
+      box-shadow: 0 7px 20px 7px #dcdbdb;
+      display: flex;
+      justify-content: space-between;
+      align-content: baseline;
+      img{
+        width: 30%;
+        border-radius: 16px;
+        margin-right: 10px;
+      }
+      .productWrapper{
+        width: 75%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .limitedBlock{
+          display: flex;
+          width: 100%;
+          margin-right: 6px;
+          justify-content: flex-end;
+          .limited{
+            padding: 4px 8px;
+            font-family: Montserrat;
+            font-weight: 600;
+            font-size: 10px;
+            color: #889BB1;
+            background-color: #E7EEF9;
+            border-radius: 12px;
+            margin-right: 6px;
+          }
+          .new{
+            padding: 4px 8px;
+            font-family: Montserrat;
+            font-weight: 600;
+            font-size: 10px;
+            color: #20B02E;
+            background-color: #E6F5E6;
+            border-radius: 12px;
+            margin-right: 6px;
+          }
+        }
+        .descriptionWrapper{
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          .categoryName{
+            font-weight: 600;
+            font-size: 14px;
+            font-family: Montserrat;
+            color: #A8B8CA;
+          }
+          .productName{
+            font-weight: 700;
+            font-size: 16px;
+            font-family: Montserrat;
+            color:black;
+          }
+          .description{
+            font-weight: 500;
+            font-size: 14px;
+            height: 20px;
+            font-family: Montserrat;
+            overflow: hidden;
+            color:black;
+            padding-right: 10px;
+          }
+          .priceWrapper{
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            .price{
+              font-weight: 700;
+              font-size: 16px;
+              font-family: Montserrat;
+              color:black;
+            }
+            .discount{
+              font-weight: 600;
+              font-size: 12px;
+              font-family: Montserrat;
+              color:#FF9900;
+            }
+          }
+        }
+      }
+    }
+  }
 }
-
-.filtersContainer {
-  display: grid;
-  grid-template-columns: max-content max-content;
-  grid-gap: 24px;
+@media screen and (max-width: 1200px){
+  .itemsContainer{
+    width: 100% !important;
+    padding-left: 10px;
+    .productContainer{
+      width:calc(95% / 2) !important;
+    }
+  }
 }
-
-.itemsContainer {
-  display: grid;
-  grid-gap: 8px;
+@media screen and (max-width: 920px){
+  .itemsContainer{
+    width: 100% !important;
+  }
 }
-
-.productContainer {
-  padding: 8px;
-  border-bottom: 1px solid #989898;
-
-  & > span:not(:first-child) {
-    margin-left: 8px;
+@media screen and (max-width: 700px) {
+  .itemsContainer{
+    width: 100% !important;
+    flex-direction: column !important;
+    align-items: center;
+    .productContainer{
+      width: 100% !important;
+    }
   }
 }
 
-.productName {
-  font-weight: bold;
-}
+
+
