@@ -5,6 +5,8 @@ import { useState } from 'react'
 
 function App() {
   const [filterlist, setFilterlist] = useState([])
+
+  /*toto սթայլերը ուղել*/
   return (
     <div>
       <Header setFilterlist={setFilterlist} />

@@ -12,6 +12,11 @@ function Filter({ filterlist, setFilterlist }) {
     setFilterlist(filterlist)
   }, [filterlist])
 
+  /*
+   * todo
+   *  productChecked և productCheckedNew ֆունկցիաները նույն բանն են անում, պետքա գրել մի ֆունկցիա 2-ի համար
+   * */
+
   function productChecked() {
     setChecked(!checked)
     if (!checked) {
@@ -31,6 +36,10 @@ function Filter({ filterlist, setFilterlist }) {
   }
 
   function productFilter(complete) {
+    /*
+     * todo բա որ 100 հատ լիներ
+     *  շատ վատա գրած
+     * */
     if (complete === 'ALL') {
       setFilterlist(items)
     } else if (complete === 'CANOLA') {
@@ -60,6 +69,7 @@ function Filter({ filterlist, setFilterlist }) {
             <div className={style.category}>
               <div className={style.categoryTitle}>Category</div>
               <div className={style.filtersBtn}>
+                {/*todo ունես կատեգորիաների լիստ պետք էր ցույց տալ բեքից ստացված կատեգորիանրը*/}
                 <button onClick={() => productFilter('ALL')}>All</button>
                 <button onClick={() => productFilter('CANOLA')}>Canola</button>
                 <button onClick={() => productFilter('CORN')}>Corn</button>

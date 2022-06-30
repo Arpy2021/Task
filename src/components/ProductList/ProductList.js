@@ -12,6 +12,7 @@ const ProductList = ({ filterlist, setFilterlist }) => {
   return (
     <div className={styles.productList}>
       <div className={styles.itemsContainer}>
+        {/*todo պետք էր սարքել առանճին կոմպոնենտ*/}
         {filterlist.map(item => (
           <div className={styles.productContainer} key={item.id}>
             <img src={Corn} alt="" />
